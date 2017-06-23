@@ -159,7 +159,7 @@
     <script type="text/javascript" src="ctrl/js/joystick_view.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(function () {
-            $.get("/ajax/game", function (_data) {
+            $.get("/ajax/game.json", function (_data) {
                 new JSNES({
                     'ui': $('#emulator').JSNESUI(_data)
                 });

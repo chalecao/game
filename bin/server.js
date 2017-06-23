@@ -22,7 +22,7 @@ import {
 var router = new(journey.Router);
 router.map(function () {
     this.get(/^ajax\/(.*)$/).bind(function (req, response, id, data) {
-        if (id == "game") {
+        if (id == "game.json") {
             let files = fs.readdirSync(join(currentDir, "roms"));
             var _games = {
                 "其他": []
