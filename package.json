@@ -1,0 +1,39 @@
+{
+  "name": "play",
+  "version": "0.0.0",
+  "description": "A JavaScript NES emulator",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bfirsh/jsnes.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.1",
+    "grunt-contrib-jshint": "~0.5.4"
+  },
+  "bugs": {
+    "url": "https://github.com/bfirsh/jsnes/issues"
+  },
+  "homepage": "https://github.com/bfirsh/jsnes#readme",
+  "main": "index.js",
+  "bin": {
+    "play": "config.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "rollup -c bin/config.js",
+    "dev": "node dist/play ./ -p 9999"
+  },
+  "author": "",
+  "dependencies": {
+    "journey": "^0.4.0-pre-3",
+    "opts": "^1.2.6",
+    "rollup": "^0.43.0",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  }
+}

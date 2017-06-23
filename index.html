@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="cleartype" content="on">
+    <meta name="MobileOptimized" content="320">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <title>NES emulator</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        a,
+        button,
+        input {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .nes-intro {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            background: rgba(0, 0, 0, 0.79);
+        }
+
+        .nes-roms,
+        .nes-controls,
+        .nes-status {
+            position: absolute;
+            z-index: 999;
+            top: 50%;
+            text-align: center;
+            width: 100%;
+        }
+
+        .nes-roms {
+            top: 30%;
+        }
+
+        .nes-roms select {
+            height: 34px;
+            font-size: 18px;
+            width: 200px;
+        }
+
+        .nes-status {
+            top: 60%;
+            color: #fff;
+        }
+
+        .nes-controls input {
+            height: 34px;
+        }
+
+        .nes-show {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            opacity: 0.6;
+        }
+
+        #emulator {
+            z-index: 5;
+        }
+
+        #joystickContent {
+            z-index: 4;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0.6;
+        }
+
+        #joystickCanvas {
+            -webkit-touch-callout: none;
+        }
+
+        .ctrl-start {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .ctrl-select {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: 10px;
+        }
+
+        .ctrl-btnA {
+            position: absolute;
+            bottom: 85px;
+            right: 100px;
+            background: url(ctrl/img/button.png);
+            width: 70px;
+            height: 70px;
+            background-size: 100%;
+            border: none;
+            color: #fff;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .ctrl-btnB {
+            position: absolute;
+            bottom: 85px;
+            right: 18px;
+            background: url(ctrl/img/button.png);
+            width: 70px;
+            height: 70px;
+            background-size: 100%;
+            border: none;
+            color: #fff;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .ctrl-btnAB {
+            position: absolute;
+            bottom: 10px;
+            right: 62px;
+            background: url(ctrl/img/button.png);
+            width: 70px;
+            height: 70px;
+            background-size: 100%;
+            border: none;
+            color: #fff;
+            text-align: center;
+            line-height: 70px;
+        }
+    </style>
+    <!--<script src="lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>-->
+    <script type="text/javascript" src="lib/zepto.min.js"></script>
+    <script src="lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="source/nes.js" type="text/javascript" charset="utf-8"></script>
+    <script src="source/utils.js" type="text/javascript" charset="utf-8"></script>
+    <script src="source/cpu.js" type="text/javascript" charset="utf-8"></script>
+    <script src="source/keyboard.js" type="text/javascript" charset="utf-8"></script>
+    <script src="source/mappers.js" type="text/javascript" charset="utf-8"></script>
+    <script src="source/papu.js" type="text/javascript" charset="utf-8"></script>
+    <script src="source/ppu.js" type="text/javascript" charset="utf-8"></script>
+    <script src="source/rom.js" type="text/javascript" charset="utf-8"></script>
+    <script src="source/ui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="ctrl/js/underscore-min.js"></script>
+    <script type="text/javascript" src="ctrl/js/backbone-min.js"></script>
+    <script type="text/javascript" src="ctrl/js/joystick_view.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+            $.get("/ajax/game", function (_data) {
+                new JSNES({
+                    'ui': $('#emulator').JSNESUI(_data)
+                });
+            })
+        });
+    </script>
+    <!--[if IE]>
+    <script type="text/vbscript" src="source/jsnes-ie-hacks.vbscript"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="emulator"></div>
+    <div id="joystickContent">
+
+</body>
+
+</html>
