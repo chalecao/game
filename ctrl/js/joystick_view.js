@@ -10,6 +10,9 @@ var spriteWidth = 50;
 var spriteHeight = 50;
 var pixelsLeft = 0; //ofset for sprite on img
 var pixelsTop = 0; //offset for sprite on img
+var left = 0;
+var fromTop = 0;
+var x, y;
 
 function loadSprite(src, callback) {
     var sprite = new Image();
@@ -109,24 +112,25 @@ JoystickView = Backbone.View.extend({
             return;
         }
         this.lastTouch = new Date().getTime();
-        var x, y;
         if (evt && evt.touches) {
             evt.preventDefault();
             evt.stopPropagation();
 
-            var left = 0;
-            var fromTop = 0;
+            left = 0;
+            fromTop = 0;
             elem = $(this.canvas)[0];
             while (elem) {
                 left = left + parseInt(elem.offsetLeft);
                 fromTop = fromTop + parseInt(elem.offsetTop);
                 elem = elem.offsetParent;
             }
+            console.log(evt.touches[0].clientX + "--touch move--" + evt.touches[0].clientY);
             x = evt.touches[0].clientX - left;
             y = evt.touches[0].clientY - fromTop;
         } else {
             x = evt.offsetX;
             y = evt.offsetY;
+            console.log(evt.offsetX + "--offset--" + evt.offsetY);
         }
         this._mutateToCartesian(x, y);
         this._triggerChange();
