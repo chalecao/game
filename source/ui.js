@@ -55,7 +55,7 @@ if (typeof Zepto !== 'undefined') {
                     show: $('<input type="button" value="设置" class="nes-show">').appendTo(self.root),
                     weixin: $('<img src="/ctrl/img/weixin.jpg" class="weixin">').appendTo(self.intro),
                     alipay: $('<img src="/ctrl/img/alipay.jpg" class="alipay">').appendTo(self.intro),
-                    payTips: $('<h4 class="pay-tips">微信或支付宝打赏一下，我会努力改进的！么么哒！</h4>').appendTo(self.intro)
+                    payTips: $('<h4 class="pay-tips">微信或支付宝打赏一下，努力改进么么哒！</h4>').appendTo(self.intro)
                 };
                 self.status = $('<p class="nes-status">loading...</p>').appendTo(self.intro);
                 self.root.appendTo(parent);
