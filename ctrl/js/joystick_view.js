@@ -34,7 +34,7 @@ JoystickView = Backbone.View.extend({
     initialize: function (squareSize, finishedLoadCallback) {
         this.squareSize = squareSize;
         this.template = _.template(
-            '<canvas id="joystickCanvas" width="<%= squareSize %>" height="<%= squareSize %>" style="width: <%= squareSize %>px; height: <%= squareSize %>px;"></canvas>"');
+            '<canvas id="joystickCanvas" width="<%= squareSize %>" height="<%= squareSize %>" style="width: <%= squareSize %>px; height: <%= squareSize %>px;"></canvas>');
         this.state = INACTIVE;
         this.x = 0;
         this.y = 0;
@@ -124,13 +124,13 @@ JoystickView = Backbone.View.extend({
                 fromTop = fromTop + parseInt(elem.offsetTop);
                 elem = elem.offsetParent;
             }
-            console.log(evt.touches[0].clientX + "--touch move--" + evt.touches[0].clientY);
+            // console.log(evt.touches[0].clientX + "--touch move--" + evt.touches[0].clientY);
             x = evt.touches[0].clientX - left;
             y = evt.touches[0].clientY - fromTop;
         } else {
             x = evt.offsetX;
             y = evt.offsetY;
-            console.log(evt.offsetX + "--offset--" + evt.offsetY);
+            // console.log(evt.offsetX + "--offset--" + evt.offsetY);
         }
         this._mutateToCartesian(x, y);
         this._triggerChange();

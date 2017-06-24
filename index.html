@@ -9,7 +9,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
     />
-    <title>NES emulator</title>
+    <link rel="shortcut icon" href="favicon.png" />
+    <title>皓眸游戏-儿时的回忆</title>
     <style>
         html,
         body {
@@ -53,6 +54,10 @@
             width: 200px;
         }
 
+        .nes-pause {
+            display: none;
+        }
+
         .nes-status {
             top: 60%;
             color: #fff;
@@ -82,7 +87,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            opacity: 0.8;
+            opacity: 0.3;
             background: transparent;
         }
 
@@ -181,12 +186,12 @@
 
         .weixin {
             left: 0px;
-            top: 50px;
+            top: 40px;
         }
 
         .alipay {
             right: 0px;
-            top: 50px;
+            top: 40px;
         }
 
         .pay-tips {
@@ -201,7 +206,11 @@
     </style>
     <!--<script src="lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>-->
     <script type="text/javascript" src="lib/zepto.min.js"></script>
+    <script type="text/javascript" src="lib/zepto.cookie.js"></script>
+    <script type="text/javascript" src="ctrl/js/underscore-min.js"></script>
+    <script type="text/javascript" src="ctrl/js/backbone-min.js"></script>
     <script src="lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
+    
     <script src="source/nes.js" type="text/javascript" charset="utf-8"></script>
     <script src="source/utils.js" type="text/javascript" charset="utf-8"></script>
     <script src="source/cpu.js" type="text/javascript" charset="utf-8"></script>
@@ -211,8 +220,7 @@
     <script src="source/ppu.js" type="text/javascript" charset="utf-8"></script>
     <script src="source/rom.js" type="text/javascript" charset="utf-8"></script>
     <script src="source/ui.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="ctrl/js/underscore-min.js"></script>
-    <script type="text/javascript" src="ctrl/js/backbone-min.js"></script>
+
     <script type="text/javascript" src="ctrl/js/joystick_view.js"></script>
     <script type="text/javascript" charset="utf-8">
         $(function () {
@@ -231,7 +239,6 @@
 <body>
     <div id="emulator"></div>
     <div id="joystickContent">
-
 </body>
 
 </html>

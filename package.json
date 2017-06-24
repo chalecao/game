@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "rollup -c bin/config.js",
+    "grunt": "grunt",
     "dev": "node dist/play ./ -p 9999"
   },
   "author": "",
