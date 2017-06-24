@@ -92,6 +92,8 @@ JoystickView = Backbone.View.extend({
     },
     startControl: function (evt) {
         this.state = ACTIVE;
+        evt.preventDefault();
+        evt.stopPropagation();
     },
     endCotrol: function (evt) {
         this.state = BACK;

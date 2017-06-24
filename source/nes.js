@@ -50,7 +50,7 @@ var JSNES = function (opts) {
     this.mmap = null; // set in loadRom()
     this.keyboard = new JSNES.Keyboard();
 
-    this.ui.updateStatus("Ready to load a ROM.");
+    this.ui.updateStatus("初始化完成，等待加载游戏...");
 };
 
 JSNES.VERSION = "<%= version %>";
@@ -97,7 +97,7 @@ JSNES.prototype = {
             // }, this.opts.fpsInterval);
             // }
         } else {
-            this.ui.updateStatus("There is no ROM loaded, or it is invalid.");
+            this.ui.updateStatus("没有加载到游戏，或者格式不支持！");
         }
     },
 
@@ -190,7 +190,7 @@ JSNES.prototype = {
             this.stop();
         }
 
-        this.ui.updateStatus("Loading ROM...");
+        this.ui.updateStatus("游戏加载中...");
 
         // Load ROM file:
         this.rom = new JSNES.ROM(this);
@@ -206,9 +206,9 @@ JSNES.prototype = {
             this.ppu.setMirroring(this.rom.getMirroringType());
             this.romData = data;
 
-            this.ui.updateStatus("Successfully loaded. Ready to be started.");
+            this.ui.updateStatus("加载成功，开始中...");
         } else {
-            this.ui.updateStatus("Invalid ROM!");
+            this.ui.updateStatus("游戏格式不支持!");
         }
         return this.rom.valid;
     },

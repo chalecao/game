@@ -52,18 +52,25 @@ if (typeof Zepto !== 'undefined') {
                     restart: $('<input type="button" value="重新开始" class="nes-restart" disabled="disabled">').appendTo(self.controls),
                     sound: $('<input type="button" value="关闭声音" class="nes-enablesound">').appendTo(self.controls),
                     hide: $('<input type="button" value="收起设置" class="nes-hide">').appendTo(self.controls),
-                    show: $('<input type="button" value="设置" class="nes-show">').appendTo(self.root)
+                    show: $('<input type="button" value="设置" class="nes-show">').appendTo(self.root),
+                    weixin: $('<img src="/ctrl/img/weixin.jpg" class="weixin">').appendTo(self.intro),
+                    alipay: $('<img src="/ctrl/img/alipay.jpg" class="alipay">').appendTo(self.intro),
+                    payTips: $('<h4 class="pay-tips">微信或支付宝打赏一下，我会努力改进的！么么哒！</h4>').appendTo(self.intro)
                 };
                 self.status = $('<p class="nes-status">loading...</p>').appendTo(self.intro);
                 self.root.appendTo(parent);
+                var _H = document.documentElement.clientHeight;
+                var _ch = document.documentElement.clientWidth / 256 * 240;
                 self.screen.css({
                     width: document.documentElement.clientWidth,
-                    height: document.documentElement.clientHeight
+                    height: _H > _ch ? _ch : _H
                 });
                 $(window).resize(function () {
+                    var _H = document.documentElement.clientHeight;
+                    var _ch = document.documentElement.clientWidth / 256 * 240;
                     self.screen.css({
                         width: document.documentElement.clientWidth,
-                        height: document.documentElement.clientHeight
+                        height: _H > _ch ? _ch : _H
                     });
                 });
 
@@ -79,21 +86,21 @@ if (typeof Zepto !== 'undefined') {
                 joystickView.btnA = $('<div type="button" class="ctrl-btnA">A</div>').appendTo($("#joystickContent"));
                 joystickView.btnAB = $('<div type="button" class="ctrl-btnAB">AB</div>').appendTo($("#joystickContent"));
                 joystickView.btnB = $('<div type="button" class="ctrl-btnB">B</div>').appendTo($("#joystickContent"));
-                joystickView.start.bind("touchstart", function (e) {
+                joystickView.start.bind("touchstart click", function (e) {
                     self.nes.keyboard.setKey(13, 0x41)
                     setTimeout(function () {
                         self.nes.keyboard.setKey(13, 0x40)
                     }, 300)
                     e.preventDefault();
                 });
-                joystickView.select.bind("touchstart", function (e) {
+                joystickView.select.bind("touchstart click", function (e) {
                     self.nes.keyboard.setKey(17, 0x41)
                     setTimeout(function () {
                         self.nes.keyboard.setKey(17, 0x40)
                     }, 300)
                     e.preventDefault();
                 });
-                joystickView.btnA.bind("touchstart", function (e) {
+                joystickView.btnA.bind("touchstart click", function (e) {
 
                     self.nes.keyboard.setKey(88, 0x41)
                     setTimeout(function () {
@@ -101,7 +108,7 @@ if (typeof Zepto !== 'undefined') {
                     }, 300)
                     e.preventDefault();
                 });
-                joystickView.btnAB.bind("touchstart", function (e) {
+                joystickView.btnAB.bind("touchstart click", function (e) {
                     self.nes.keyboard.setKey(88, 0x41)
                     self.nes.keyboard.setKey(89, 0x41)
                     setTimeout(function () {
@@ -112,7 +119,7 @@ if (typeof Zepto !== 'undefined') {
                     }, 300)
                     e.preventDefault();
                 });
-                joystickView.btnB.bind("touchstart", function (e) {
+                joystickView.btnB.bind("touchstart click", function (e) {
                     self.nes.keyboard.setKey(89, 0x41)
                     setTimeout(function () {
                         self.nes.keyboard.setKey(89, 0x40)
@@ -336,7 +343,7 @@ if (typeof Zepto !== 'undefined') {
 
                 setRoms: function (roms) {
                     this.romSelect.children().remove();
-                    $("<option>Select a ROM...</option>").appendTo(this.romSelect);
+                    $("<option>请选择游戏</option>").appendTo(this.romSelect);
                     for (var groupName in roms) {
                         if (roms.hasOwnProperty(groupName)) {
                             var optgroup = $('<optgroup></optgroup>').
