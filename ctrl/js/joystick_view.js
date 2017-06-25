@@ -120,7 +120,7 @@ JoystickView = Backbone.View.extend({
                     fromTop = fromTop + parseInt(elem.offsetTop);
                     elem = elem.offsetParent;
                 }
-                console.log(evt.touches[0].clientX + "--touch move--" + evt.touches[0].clientY);
+                // console.log(evt.touches[0].clientX + "--touch move--" + evt.touches[0].clientY);
                 x = evt.touches[0].clientX - left;
                 y = evt.touches[0].clientY - fromTop;
                 this.lastTouch = new Date().getTime();
