@@ -26,7 +26,7 @@ JoystickView = Backbone.View.extend({
     events: {
         "touchstart": "startControl",
         "touchmove": "move",
-        "touchend": "endCotrol",
+        "touchend": "endControl",
         "mousedown": "startControl",
         "mouseup": "endControl",
         "mousemove": "move"
@@ -98,9 +98,6 @@ JoystickView = Backbone.View.extend({
         evt.preventDefault();
         evt.stopPropagation();
     },
-    endCotrol: function (evt) {
-        this.state = BACK;
-    },
     endControl: function (evt) {
         this.state = INACTIVE;
         this.x = 0;
@@ -111,29 +108,34 @@ JoystickView = Backbone.View.extend({
         if (this.state == INACTIVE) {
             return;
         }
-        this.lastTouch = new Date().getTime();
         if (evt && evt.touches) {
             evt.preventDefault();
             evt.stopPropagation();
-
-            left = 0;
-            fromTop = 0;
-            elem = $(this.canvas)[0];
-            while (elem) {
-                left = left + parseInt(elem.offsetLeft);
-                fromTop = fromTop + parseInt(elem.offsetTop);
-                elem = elem.offsetParent;
+            if (evt.touches[0].clientX < 200 && evt.touches[0].clientY > 240) {
+                left = 0;
+                fromTop = 0;
+                elem = $(this.canvas)[0];
+                while (elem) {
+                    left = left + parseInt(elem.offsetLeft);
+                    fromTop = fromTop + parseInt(elem.offsetTop);
+                    elem = elem.offsetParent;
+                }
+                console.log(evt.touches[0].clientX + "--touch move--" + evt.touches[0].clientY);
+                x = evt.touches[0].clientX - left;
+                y = evt.touches[0].clientY - fromTop;
+                this.lastTouch = new Date().getTime();
+                this._mutateToCartesian(x, y);
+                this._triggerChange();
             }
-            // console.log(evt.touches[0].clientX + "--touch move--" + evt.touches[0].clientY);
-            x = evt.touches[0].clientX - left;
-            y = evt.touches[0].clientY - fromTop;
         } else {
-            x = evt.offsetX;
-            y = evt.offsetY;
+            if (evt.offsetX < 200 && evt.offsetY > 240) {
+                this.lastTouch = new Date().getTime();
+                this._mutateToCartesian(evt.offsetX, evt.offsetY);
+                this._triggerChange();
+            }
             // console.log(evt.offsetX + "--offset--" + evt.offsetY);
         }
-        this._mutateToCartesian(x, y);
-        this._triggerChange();
+
     },
     _triggerChange: function () {
         var xPercent = this.x / this.radius;
