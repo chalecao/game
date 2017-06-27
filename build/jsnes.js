@@ -6933,12 +6933,13 @@ if (typeof Zepto !== 'undefined') {
                         self.nes.keyboard.setKey(88, 0x41)
                         setTimeout(function () {
                             self.nes.keyboard.setKey(88, 0x40)
+
                             self.nes.keyboard.setKey(88, 0x41)
                             setTimeout(function () {
                                 self.nes.keyboard.setKey(88, 0x40)
                                 joystickView.btnAAFlag = false;
-                            }, 300)
-                        }, 300)
+                            }, 200)
+                        }, 200)
                     }
                     e.preventDefault();
                     e.stopPropagation();
@@ -6962,19 +6963,20 @@ if (typeof Zepto !== 'undefined') {
                         self.nes.keyboard.setKey(89, 0x41)
                         setTimeout(function () {
                             self.nes.keyboard.setKey(88, 0x40)
-                        }, 300)
+                        }, 200)
                         setTimeout(function () {
                             self.nes.keyboard.setKey(89, 0x40)
+
                             self.nes.keyboard.setKey(88, 0x41)
                             self.nes.keyboard.setKey(89, 0x41)
                             setTimeout(function () {
                                 self.nes.keyboard.setKey(88, 0x40)
-                            }, 300)
+                            }, 200)
                             setTimeout(function () {
                                 self.nes.keyboard.setKey(89, 0x40)
                                 joystickView.btnAABBFlag = false;
-                            }, 300)
-                        }, 300)
+                            }, 200)
+                        }, 200)
                     }
                     e.preventDefault();
                     e.stopPropagation();
@@ -6997,8 +6999,8 @@ if (typeof Zepto !== 'undefined') {
                             setTimeout(function () {
                                 self.nes.keyboard.setKey(89, 0x40)
                                 joystickView.btnBBFlag = false;
-                            }, 300)
-                        }, 300)
+                            }, 200)
+                        }, 200)
                     }
                     e.preventDefault();
                     e.stopPropagation();
@@ -7008,13 +7010,13 @@ if (typeof Zepto !== 'undefined') {
                         self.nes.keyboard.setKey(38, 0x41) //up
                         setTimeout(function () {
                             self.nes.keyboard.setKey(38, 0x40)
-                        }, 300)
+                        }, 200)
                     }
                     if (y < -0.5) {
                         self.nes.keyboard.setKey(40, 0x41) //down
                         setTimeout(function () {
                             self.nes.keyboard.setKey(40, 0x40)
-                        }, 300)
+                        }, 200)
                     }
 
                 });
@@ -7023,13 +7025,13 @@ if (typeof Zepto !== 'undefined') {
                         self.nes.keyboard.setKey(39, 0x41) //right
                         setTimeout(function () {
                             self.nes.keyboard.setKey(39, 0x40)
-                        }, 300)
+                        }, 200)
                     }
                     if (x < -0.5) {
                         self.nes.keyboard.setKey(37, 0x41) //left
                         setTimeout(function () {
                             self.nes.keyboard.setKey(37, 0x40)
-                        }, 300)
+                        }, 200)
                     }
                 });
 
