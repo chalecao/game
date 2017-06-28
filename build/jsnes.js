@@ -6897,11 +6897,11 @@ if (typeof Zepto !== 'undefined') {
                 joystickView.start = $('<input type="button" value="start" class="ctrl-start">').appendTo($("#joystickContent"));
                 joystickView.select = $('<input type="button" value="select" class="ctrl-select">').appendTo($("#joystickContent"));
                 joystickView.btnA = $('<div type="button" class="ctrl-btnA">A</div>').appendTo($("#joystickContent"));
-                joystickView.btnAA = $('<div type="button" class="ctrl-btnAA">AA</div>').appendTo($("#joystickContent"));
+                // joystickView.btnAA = $('<div type="button" class="ctrl-btnAA">AA</div>').appendTo($("#joystickContent"));
                 joystickView.btnAB = $('<div type="button" class="ctrl-btnAB">AB</div>').appendTo($("#joystickContent"));
-                joystickView.btnAABB = $('<div type="button" class="ctrl-btnAABB">A2B</div>').appendTo($("#joystickContent"));
+                // joystickView.btnAABB = $('<div type="button" class="ctrl-btnAABB">A2B</div>').appendTo($("#joystickContent"));
                 joystickView.btnB = $('<div type="button" class="ctrl-btnB">B</div>').appendTo($("#joystickContent"));
-                joystickView.btnBB = $('<div type="button" class="ctrl-btnBB">BB</div>').appendTo($("#joystickContent"));
+                // joystickView.btnBB = $('<div type="button" class="ctrl-btnBB">BB</div>').appendTo($("#joystickContent"));
                 joystickView.start.bind("touchstart click touchmove", function (e) {
                     self.nes.keyboard.setKey(13, 0x41)
                     setTimeout(function () {
@@ -6927,23 +6927,23 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnAA.bind("touchstart click touchmove", function (e) {
-                    if (!joystickView.btnAAFlag) {
-                        joystickView.btnAAFlag = true;
-                        self.nes.keyboard.setKey(88, 0x41)
-                        setTimeout(function () {
-                            self.nes.keyboard.setKey(88, 0x40)
+                // joystickView.btnAA.bind("touchstart click touchmove", function (e) {
+                //     if (!joystickView.btnAAFlag) {
+                //         joystickView.btnAAFlag = true;
+                //         self.nes.keyboard.setKey(88, 0x41)
+                //         setTimeout(function () {
+                //             self.nes.keyboard.setKey(88, 0x40)
 
-                            self.nes.keyboard.setKey(88, 0x41)
-                            setTimeout(function () {
-                                self.nes.keyboard.setKey(88, 0x40)
-                                joystickView.btnAAFlag = false;
-                            }, 200)
-                        }, 200)
-                    }
-                    e.preventDefault();
-                    e.stopPropagation();
-                });
+                //             self.nes.keyboard.setKey(88, 0x41)
+                //             setTimeout(function () {
+                //                 self.nes.keyboard.setKey(88, 0x40)
+                //                 joystickView.btnAAFlag = false;
+                //             }, 200)
+                //         }, 200)
+                //     }
+                //     e.preventDefault();
+                //     e.stopPropagation();
+                // });
                 joystickView.btnAB.bind("touchstart click touchmove", function (e) {
                     self.nes.keyboard.setKey(88, 0x41)
                     self.nes.keyboard.setKey(89, 0x41)
@@ -6956,31 +6956,31 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnAABB.bind("touchstart click touchmove", function (e) {
-                    if (!joystickView.btnAABBFlag) {
-                        joystickView.btnAABBFlag = true;
-                        self.nes.keyboard.setKey(88, 0x41)
-                        self.nes.keyboard.setKey(89, 0x41)
-                        setTimeout(function () {
-                            self.nes.keyboard.setKey(88, 0x40)
-                        }, 200)
-                        setTimeout(function () {
-                            self.nes.keyboard.setKey(89, 0x40)
+                // joystickView.btnAABB.bind("touchstart click touchmove", function (e) {
+                //     if (!joystickView.btnAABBFlag) {
+                //         joystickView.btnAABBFlag = true;
+                //         self.nes.keyboard.setKey(88, 0x41)
+                //         self.nes.keyboard.setKey(89, 0x41)
+                //         setTimeout(function () {
+                //             self.nes.keyboard.setKey(88, 0x40)
+                //         }, 200)
+                //         setTimeout(function () {
+                //             self.nes.keyboard.setKey(89, 0x40)
 
-                            self.nes.keyboard.setKey(88, 0x41)
-                            self.nes.keyboard.setKey(89, 0x41)
-                            setTimeout(function () {
-                                self.nes.keyboard.setKey(88, 0x40)
-                            }, 200)
-                            setTimeout(function () {
-                                self.nes.keyboard.setKey(89, 0x40)
-                                joystickView.btnAABBFlag = false;
-                            }, 200)
-                        }, 200)
-                    }
-                    e.preventDefault();
-                    e.stopPropagation();
-                });
+                //             self.nes.keyboard.setKey(88, 0x41)
+                //             self.nes.keyboard.setKey(89, 0x41)
+                //             setTimeout(function () {
+                //                 self.nes.keyboard.setKey(88, 0x40)
+                //             }, 200)
+                //             setTimeout(function () {
+                //                 self.nes.keyboard.setKey(89, 0x40)
+                //                 joystickView.btnAABBFlag = false;
+                //             }, 200)
+                //         }, 200)
+                //     }
+                //     e.preventDefault();
+                //     e.stopPropagation();
+                // });
                 joystickView.btnB.bind("touchstart click touchmove", function (e) {
                     self.nes.keyboard.setKey(89, 0x41)
                     setTimeout(function () {
@@ -6989,22 +6989,22 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnBB.bind("touchstart click touchmove", function (e) {
-                    if (!joystickView.btnBBFlag) {
-                        joystickView.btnBBFlag = true;
-                        self.nes.keyboard.setKey(89, 0x41)
-                        setTimeout(function () {
-                            self.nes.keyboard.setKey(89, 0x40)
-                            self.nes.keyboard.setKey(89, 0x41)
-                            setTimeout(function () {
-                                self.nes.keyboard.setKey(89, 0x40)
-                                joystickView.btnBBFlag = false;
-                            }, 200)
-                        }, 200)
-                    }
-                    e.preventDefault();
-                    e.stopPropagation();
-                });
+                // joystickView.btnBB.bind("touchstart click touchmove", function (e) {
+                //     if (!joystickView.btnBBFlag) {
+                //         joystickView.btnBBFlag = true;
+                //         self.nes.keyboard.setKey(89, 0x41)
+                //         setTimeout(function () {
+                //             self.nes.keyboard.setKey(89, 0x40)
+                //             self.nes.keyboard.setKey(89, 0x41)
+                //             setTimeout(function () {
+                //                 self.nes.keyboard.setKey(89, 0x40)
+                //                 joystickView.btnBBFlag = false;
+                //             }, 200)
+                //         }, 200)
+                //     }
+                //     e.preventDefault();
+                //     e.stopPropagation();
+                // });
                 joystickView.bind("verticalMove", function (y) {
                     if (y > 0.5) {
                         self.nes.keyboard.setKey(38, 0x41) //up
