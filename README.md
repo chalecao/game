@@ -1,25 +1,17 @@
 JSNES
 =====
 
-A JavaScript NES emulator.
+A JavaScript NES emulator. enjoy nes game online!
 
 Build
 -----
 
-To build a distribution, you will [Grunt](http://gruntjs.com):
+To build a distribution:
 
-    $ sudo npm install -g grunt-cli
+    $ npm run build
 
 Then run:
 
-    $ npm install
-    $ grunt
+    $ npm run dev
 
-This will create ``jsnes.js`` and ``jsnes-min.js`` in ``build/``.
-
-Benchmark
----------
-
-The benchmark in ``test/benchmark.js`` is intended for testing JavaScript 
-engines. It does not depend on a DOM or Canvas element etc.
 
