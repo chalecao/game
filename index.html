@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
     />
     <link rel="shortcut icon" href="favicon.png" />
-    <title>皓眸游戏-儿时的回忆</title>
+    <title>前端学堂fed123-儿时的回忆</title>
     <style>
         html,
         body {
@@ -52,6 +52,7 @@
             height: 34px;
             font-size: 18px;
             width: 200px;
+            background: grey;
         }
 
         .nes-pause {
@@ -118,7 +119,7 @@
             color: #fff;
         }
 
-        .ctrl-btnA{
+        .ctrl-btnA {
             position: absolute;
             bottom: 70px;
             right: 65px;
@@ -132,6 +133,7 @@
             text-align: center;
             line-height: 65px;
         }
+
         /*.ctrl-btnAA {
             position: absolute;
             bottom: 70px;
@@ -216,6 +218,14 @@
             font-weight: initial;
             color: #ccc;
         }
+        a{
+            color: #ccc;
+        }
+        .pay-tips svg {
+            width: 60px;
+            display: inline-block;
+            vertical-align: middle;
+        }
     </style>
     <!--<script src="lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>-->
     <script type="text/javascript" src="lib/zepto.min.js"></script>
@@ -227,11 +237,83 @@
     <script src="build/jsnes.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
         $(function () {
-            $.get("/ajax/game.json", function (_data) {
-                new JSNES({
-                    'ui': $('#emulator').JSNESUI(_data)
-                });
-            })
+            new JSNES({
+                'ui': $('#emulator').JSNESUI({
+                    "其他": [
+                        ["1944", "roms/1944.nes"],
+                        ["三目童子", "roms/三目童子.nes"],
+                        ["中东战争", "roms/中东战争.nes"],
+                        ["冒险岛2", "roms/冒险岛2.NES"],
+                        ["冒险岛3", "roms/冒险岛3.NES"],
+                        ["冒险岛4", "roms/冒险岛4.nes"],
+                        ["勇者斗恶龙1", "roms/勇者斗恶龙1.nes"],
+                        ["勇者斗恶龙2", "roms/勇者斗恶龙2.nes"],
+                        ["勇者斗恶龙3", "roms/勇者斗恶龙3.nes"],
+                        ["双截龙1", "roms/双截龙1.nes"],
+                        ["双截龙2", "roms/双截龙2.nes"],
+                        ["双截龙3", "roms/双截龙3.nes"],
+                        ["合金装备1", "roms/合金装备1.nes"],
+                        ["合金装备2", "roms/合金装备2.nes"],
+                        ["坦克大战", "roms/坦克大战.nes"],
+                        ["宇宙巡航舰1", "roms/宇宙巡航舰1.nes"],
+                        ["宇宙巡航舰2", "roms/宇宙巡航舰2.nes"],
+                        ["影子传说", "roms/影子传说.nes"],
+                        ["忍者神龟1", "roms/忍者神龟1.NES"],
+                        ["忍者神龟2", "roms/忍者神龟2.NES"],
+                        ["忍者神龟3", "roms/忍者神龟3.NES"],
+                        ["忍者龙剑传1", "roms/忍者龙剑传1.nes"],
+                        ["忍者龙剑传2", "roms/忍者龙剑传2.NES"],
+                        ["忍者龙剑传3", "roms/忍者龙剑传3.nes"],
+                        ["忍者龙牙", "roms/忍者龙牙.nes"],
+                        ["恶魔城1", "roms/恶魔城1.NES"],
+                        ["恶魔城2", "roms/恶魔城2.NES"],
+                        ["恶魔城3", "roms/恶魔城3.NES"],
+                        ["摩登原始人1", "roms/摩登原始人1.nes"],
+                        ["摩登原始人2", "roms/摩登原始人2.nes"],
+                        ["松鼠大作战1", "roms/松鼠大作战1.nes"],
+                        ["松鼠大作战2", "roms/松鼠大作战2.nes"],
+                        ["柯纳米世界1", "roms/柯纳米世界1.nes"],
+                        ["柯纳米世界2", "roms/柯纳米世界2.nes"],
+                        ["水上魂斗罗", "roms/水上魂斗罗.NES"],
+                        ["沙罗曼蛇", "roms/沙罗曼蛇.NES"],
+                        ["洛克人1", "roms/洛克人1.nes"],
+                        ["洛克人2", "roms/洛克人2.NES"],
+                        ["洛克人3", "roms/洛克人3.NES"],
+                        ["洛克人4", "roms/洛克人4.nes"],
+                        ["洛克人5", "roms/洛克人5.NES"],
+                        ["洛克人6", "roms/洛克人6.NES"],
+                        ["炸弹人", "roms/炸弹人.nes"],
+                        ["炸弹人2", "roms/炸弹人2.nes"],
+                        ["空中魂斗罗1", "roms/空中魂斗罗1.NES"],
+                        ["空中魂斗罗2", "roms/空中魂斗罗2.nes"],
+                        ["绿色兵团", "roms/绿色兵团.nes"],
+                        ["蝙蝠侠1", "roms/蝙蝠侠1.nes"],
+                        ["蝙蝠侠2", "roms/蝙蝠侠2.nes"],
+                        ["赤色要塞", "roms/赤色要塞.nes"],
+                        ["超级玛丽1", "roms/超级玛丽1.nes"],
+                        ["超级玛丽2", "roms/超级玛丽2.nes"],
+                        ["超级玛丽3", "roms/超级玛丽3.nes"],
+                        ["踢王", "roms/踢王.NES"],
+                        ["雪人兄弟", "roms/雪人兄弟.NES"],
+                        ["魂斗罗1", "roms/魂斗罗1.nes"],
+                        ["魂斗罗2", "roms/魂斗罗2.nes"],
+                        ["魂斗罗3", "roms/魂斗罗3.nes"]
+                    ],
+                    "动作": [
+                        ["坦克大战", "roms/动作-坦克大战.nes"],
+                        ["飞碟吸坦克", "roms/动作-飞碟吸坦克.nes"],
+                        ["马戏团", "roms/动作-马戏团.nes"],
+                        ["马戏团无限命版", "roms/动作-马戏团无限命版.nes"]
+                    ],
+                    "娱乐": [
+                        ["中国象棋(中文)", "roms/娱乐-中国象棋(中文).nes"],
+                        ["五子棋", "roms/娱乐-五子棋.nes"]
+                    ],
+                    "赛车": [
+                        ["坦克飞机", "roms/赛车-坦克飞机.nes"]
+                    ]
+                })
+            });
         });
     </script>
     <!--[if IE]>
