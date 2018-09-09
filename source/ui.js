@@ -240,6 +240,10 @@ if (typeof Zepto !== 'undefined') {
                     }
                 });
 
+                self.buttons.payTips.bind("click", function (x) {
+                    JSNES.store.set("gameCnt", 1)
+                })
+
                 /*
                  * ROM loading
                  * 每隔24小时只能玩6次
@@ -260,9 +264,9 @@ if (typeof Zepto !== 'undefined') {
                         }
                         if (_cnt > 6 || self.romSelect.val() == "local") {
                             if (_cnt > 6) {
-                                self.updateStatus("每天只能玩6次哦，打赏玩更多(⊙o⊙)哦");
+                                self.updateStatus("每天只能玩6次哦，点亮github小星星玩更多(⊙o⊙)哦");
                             } else {
-                                self.updateStatus("打赏后才能使用该功能(⊙o⊙)哦");
+                                self.updateStatus("点亮github小星星后才能使用该功能(⊙o⊙)哦");
                             }
                         } else {
                             self.romSelect.val() && self.loadROM();
