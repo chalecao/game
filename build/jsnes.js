@@ -6903,7 +6903,7 @@ if (typeof Zepto !== 'undefined') {
                 joystickView.btnDown = $('<div type="button" class="ctrl-btn-down">下</div>').appendTo($("#joystickContent"));
                 joystickView.btnLeft = $('<div type="button" class="ctrl-btn-left">左</div>').appendTo($("#joystickContent"));
                 joystickView.btnRight = $('<div type="button" class="ctrl-btn-right">右</div>').appendTo($("#joystickContent"));
-                joystickView.start.bind("touchstart click touchmove", function (e) {
+                joystickView.start.bind("touchstart click ", function (e) {
                     self.nes.keyboard.setKey(13, 0x41)
                     setTimeout(function () {
                         self.nes.keyboard.setKey(13, 0x40)
@@ -6911,7 +6911,7 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.select.bind("touchstart click touchmove", function (e) {
+                joystickView.select.bind("touchstart click ", function (e) {
                     self.nes.keyboard.setKey(17, 0x41)
                     setTimeout(function () {
                         self.nes.keyboard.setKey(17, 0x40)
@@ -6919,7 +6919,7 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnA.bind("touchstart click touchmove", function (e) {
+                joystickView.btnA.bind("touchstart click ", function (e) {
 
                     self.nes.keyboard.setKey(88, 0x41)
                     setTimeout(function () {
@@ -6928,7 +6928,7 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnAA.bind("touchstart click touchmove", function (e) {
+                joystickView.btnAA.bind("touchstart click ", function (e) {
                     if (!joystickView.btnAAFlag) {
                         joystickView.btnAAFlag = true;
                         self.nes.keyboard.setKey(88, 0x41)
@@ -6945,7 +6945,7 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnAB.bind("touchstart click touchmove", function (e) {
+                joystickView.btnAB.bind("touchstart click", function (e) {
                     self.nes.keyboard.setKey(88, 0x41)
                     self.nes.keyboard.setKey(89, 0x41)
                     setTimeout(function () {
@@ -6957,7 +6957,7 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnAABB.bind("touchstart click touchmove", function (e) {
+                joystickView.btnAABB.bind("touchstart click", function (e) {
                     if (!joystickView.btnAABBFlag) {
                         joystickView.btnAABBFlag = true;
                         self.nes.keyboard.setKey(88, 0x41)
@@ -6982,7 +6982,7 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnB.bind("touchstart click touchmove", function (e) {
+                joystickView.btnB.bind("touchstart click ", function (e) {
                     self.nes.keyboard.setKey(89, 0x41)
                     setTimeout(function () {
                         self.nes.keyboard.setKey(89, 0x40)
@@ -6990,7 +6990,7 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnBB.bind("touchstart click touchmove", function (e) {
+                joystickView.btnBB.bind("touchstart click", function (e) {
                     if (!joystickView.btnBBFlag) {
                         joystickView.btnBBFlag = true;
                         self.nes.keyboard.setKey(89, 0x41)
@@ -7006,35 +7006,43 @@ if (typeof Zepto !== 'undefined') {
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnRight.bind("touchstart click touchmove", function (e) {
+                joystickView.btnRight.bind("touchstart ", function (e) {
                     self.nes.keyboard.setKey(39, 0x41) //right
-                    setTimeout(function () {
-                        self.nes.keyboard.setKey(39, 0x40)
-                    }, 200)
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnLeft.bind("touchstart click touchmove", function (e) {
+                joystickView.btnRight.bind("touchend ", function (e) {
+                    self.nes.keyboard.setKey(39, 0x40)
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+                joystickView.btnLeft.bind("touchstart ", function (e) {
                     self.nes.keyboard.setKey(37, 0x41) //left
-                    setTimeout(function () {
-                        self.nes.keyboard.setKey(37, 0x40)
-                    }, 200)
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnUp.bind("touchstart click touchmove", function (e) {
+                joystickView.btnLeft.bind("touchend ", function (e) {
+                    self.nes.keyboard.setKey(37, 0x40)
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+                joystickView.btnUp.bind("touchstart ", function (e) {
                     self.nes.keyboard.setKey(38, 0x41) //up
-                    setTimeout(function () {
-                        self.nes.keyboard.setKey(38, 0x40)
-                    }, 200)
                     e.preventDefault();
                     e.stopPropagation();
                 });
-                joystickView.btnDown.bind("touchstart click touchmove", function (e) {
+                joystickView.btnUp.bind("touchend ", function (e) {
+                    self.nes.keyboard.setKey(38, 0x40)
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+                joystickView.btnDown.bind("touchstart ", function (e) {
                     self.nes.keyboard.setKey(40, 0x41) //down
-                    setTimeout(function () {
-                        self.nes.keyboard.setKey(40, 0x40)
-                    }, 200)
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+                joystickView.btnDown.bind("touchend ", function (e) {
+                    self.nes.keyboard.setKey(40, 0x40)
                     e.preventDefault();
                     e.stopPropagation();
                 });
@@ -7090,19 +7098,19 @@ if (typeof Zepto !== 'undefined') {
                     //     } else {
                     //         JSNES.store.set("gameCnt", _cnt + 1)
                     //     }
-                        // if (_cnt > 6 || self.romSelect.val() == "local") {
-                        //     if (_cnt > 6) {
-                        //         self.updateStatus("每天只能玩6次哦，点亮github小星星玩更多(⊙o⊙)哦");
-                        //     } else {
-                        //         self.updateStatus("点亮github小星星后才能使用该功能(⊙o⊙)哦");
-                        //     }
-                        // } else {
-                        // self.romSelect.val() && self.loadROM();
-                        // }
+                    // if (_cnt > 6 || self.romSelect.val() == "local") {
+                    //     if (_cnt > 6) {
+                    //         self.updateStatus("每天只能玩6次哦，点亮github小星星玩更多(⊙o⊙)哦");
+                    //     } else {
+                    //         self.updateStatus("点亮github小星星后才能使用该功能(⊙o⊙)哦");
+                    //     }
                     // } else {
-                        JSNES.store.set("startTime", +new Date())
-                        JSNES.store.set("gameCnt", 1)
-                        self.romSelect.val() && self.loadROM();
+                    // self.romSelect.val() && self.loadROM();
+                    // }
+                    // } else {
+                    JSNES.store.set("startTime", +new Date())
+                    JSNES.store.set("gameCnt", 1)
+                    self.romSelect.val() && self.loadROM();
                     // }
                 });
 
