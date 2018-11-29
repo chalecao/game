@@ -7,8 +7,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <link rel="shortcut icon" href="favicon.png" />
     <title>前端学堂fed123-儿时的回忆</title>
     <style>
@@ -100,9 +99,9 @@
 
         .ctrl-start {
             position: absolute;
-            bottom: 20px;
+            bottom: 150px;
             left: 50%;
-            margin-left: -45px;
+            margin-left: 0px;
             height: 30px;
             width: 45px;
             background-color: #337ab7;
@@ -113,9 +112,9 @@
 
         .ctrl-select {
             position: absolute;
-            bottom: 20px;
+            bottom: 150px;
             left: 50%;
-            margin-left: 10px;
+            margin-left: 100px;
             height: 30px;
             background-color: #d9534f;
             border-color: #d43f3a;
@@ -128,7 +127,7 @@
         .ctrl-btnA {
             position: absolute;
             bottom: 70px;
-            right: 65px;
+            right: 130px;
             width: 65px;
             height: 65px;
             background: url(ctrl/img/button.png);
@@ -140,7 +139,38 @@
             line-height: 65px;
         }
 
-        /*.ctrl-btnAA {
+        .ctrl-btn-up,.ctrl-btn-down,.ctrl-btn-left,.ctrl-btn-right{
+            width: 65px;
+            height: 65px;
+            background: #ccc;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 65px;
+        }
+        .ctrl-btn-up{
+            position: absolute;
+            left: 50px;
+            bottom: 115px;
+           
+        }
+        .ctrl-btn-down{
+            position: absolute;
+            left: 50px;
+            bottom: 10px;
+        }
+        .ctrl-btn-left{
+            position: absolute;
+            left: 0px;
+            bottom:65px;
+        }
+        .ctrl-btn-right{
+            position: absolute;
+            left: 100px;
+            bottom:65px;
+        }
+
+        .ctrl-btnAA {
             position: absolute;
             bottom: 70px;
             right: 130px;
@@ -157,7 +187,7 @@
 
         .ctrl-btnAA {
             bottom: 0px;
-        }*/
+        }
 
         .ctrl-btnBB,
         .ctrl-btnB {
@@ -182,7 +212,7 @@
         .ctrl-btnAB {
             position: absolute;
             bottom: 0px;
-            right: 30px;
+            right: 65px;
             background: url(ctrl/img/button.png);
             width: 65px;
             height: 65px;
@@ -193,9 +223,9 @@
             line-height: 65px;
         }
 
-        /*.ctrl-btnAABB {
-            bottom: 0px;
-        }*/
+    .ctrl-btnAABB {
+            bottom: 70px;
+        }
 
         .weixin,
         .alipay {
@@ -233,18 +263,29 @@
             vertical-align: middle;
         }
     </style>
-    <!--<script src="lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>-->
     <script type="text/javascript" src="lib/zepto.min.js"></script>
     <script type="text/javascript" src="lib/zepto.cookie.js"></script>
     <script type="text/javascript" src="ctrl/js/underscore-min.js"></script>
     <script type="text/javascript" src="ctrl/js/backbone-min.js"></script>
     <script src="lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
-
     <script src="build/jsnes.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
         $(function () {
             new JSNES({
                 'ui': $('#emulator').JSNESUI({
+                    "动作": [
+                        ["坦克大战", "roms/动作-坦克大战.nes"],
+                        ["飞碟吸坦克", "roms/动作-飞碟吸坦克.nes"],
+                        ["马戏团", "roms/动作-马戏团.nes"],
+                        ["马戏团无限命版", "roms/动作-马戏团无限命版.nes"]
+                    ],
+                    "娱乐": [
+                        ["中国象棋(中文)", "roms/娱乐-中国象棋(中文).nes"],
+                        ["五子棋", "roms/娱乐-五子棋.nes"]
+                    ],
+                    "赛车": [
+                        ["坦克飞机", "roms/赛车-坦克飞机.nes"]
+                    ],
                     "其他": [
                         ["1944", "roms/1944.nes"],
                         ["三目童子", "roms/三目童子.nes"],
@@ -304,27 +345,11 @@
                         ["魂斗罗1", "roms/魂斗罗1.nes"],
                         ["魂斗罗2", "roms/魂斗罗2.nes"],
                         ["魂斗罗3", "roms/魂斗罗3.nes"]
-                    ],
-                    "动作": [
-                        ["坦克大战", "roms/动作-坦克大战.nes"],
-                        ["飞碟吸坦克", "roms/动作-飞碟吸坦克.nes"],
-                        ["马戏团", "roms/动作-马戏团.nes"],
-                        ["马戏团无限命版", "roms/动作-马戏团无限命版.nes"]
-                    ],
-                    "娱乐": [
-                        ["中国象棋(中文)", "roms/娱乐-中国象棋(中文).nes"],
-                        ["五子棋", "roms/娱乐-五子棋.nes"]
-                    ],
-                    "赛车": [
-                        ["坦克飞机", "roms/赛车-坦克飞机.nes"]
                     ]
                 })
             });
         });
     </script>
-    <!--[if IE]>
-    <script type="text/vbscript" src="source/jsnes-ie-hacks.vbscript"></script>
-    <![endif]-->
 </head>
 
 <body>

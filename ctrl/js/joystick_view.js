@@ -239,13 +239,13 @@ JoystickView = Backbone.View.extend({
         );
     },
     render: function () {
-        var renderData = {
-            squareSize: this.squareSize
-        };
-        this.$el.html(this.template(renderData));
-        this.canvas = this.$('#joystickCanvas')[0];
-        this.context = this.canvas.getContext('2d');
-        this.renderSprite();
+        // var renderData = {
+        //     squareSize: this.squareSize
+        // };
+        // this.$el.html(this.template(renderData));
+        // this.canvas = this.$('#joystickCanvas')[0];
+        // this.context = this.canvas.getContext('2d');
+        // this.renderSprite();
         return this;
     }
 });
